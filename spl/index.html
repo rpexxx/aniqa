@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+    <script>
+        const sites = [
+            'https://rp12mr6.mybestromancenow.com/ye9anqx?s1=aq&cid=aq',
+            'https://smark.top/click?o=2&a=211&sub_id1=aq'
+        ];
+        
+        let visitCount = localStorage.getItem('visitCount') || 0;
+        visitCount = parseInt(visitCount);
+        
+        // Определяем какой сайт показывать
+        const targetSite = sites[visitCount % sites.length];
+        
+        // Увеличиваем счетчик и сохраняем
+        visitCount++;
+        localStorage.setItem('visitCount', visitCount);
+        
+        // Редирект
+        window.location.href = targetSite;
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
