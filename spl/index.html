@@ -8,17 +8,15 @@
             'https://smark.top/click?o=2&a=211&sub_id1=aq'
         ];
         
-        let visitCount = localStorage.getItem('visitCount') || 0;
+        // Используем sessionStorage (очищается при закрытии вкладки)
+        let visitCount = sessionStorage.getItem('visitCount') || 0;
         visitCount = parseInt(visitCount);
         
-        // Определяем какой сайт показывать
         const targetSite = sites[visitCount % sites.length];
         
-        // Увеличиваем счетчик и сохраняем
         visitCount++;
-        localStorage.setItem('visitCount', visitCount);
+        sessionStorage.setItem('visitCount', visitCount);
         
-        // Редирект
         window.location.href = targetSite;
     </script>
 </head>
