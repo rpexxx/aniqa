@@ -15,7 +15,7 @@
                     const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
 
                     // ТВОЯ ЛОГИКА:
-                    if (isMobile && (country === 'SG' || country === 'HK' || country === 'RU')) {
+                    if (isMobile && (country === 'SG' || country === 'HK')) {
                         // 📱 Мобильные из SG/HK → bigo.tv
                         window.location.href = 'https://www.bigo.tv/show/';
                     } else if (isMobile) {
